@@ -1,1 +1,8 @@
-type MyPick<T, K> = any
+/**
+ * MyPick<Todo, 'title'>
+ * MyPick<Todo, 'title' | 'completed'>
+ */
+
+type MyPick<T, K extends keyof T> = {
+  [P in K]: T[P]
+}
