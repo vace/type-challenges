@@ -20,6 +20,9 @@ type Baz = {
   baz: string
 }
 
+type RemoveIndexSignatureDev1 = RemoveIndexSignature<Foo>
+type RemoveIndexSignatureDev2 = RemoveIndexSignature<FooBar>
+
 type cases = [
   Expect<Equal<RemoveIndexSignature<Foo>, { foo(): void }>>,
   Expect<Equal<RemoveIndexSignature<Bar>, { bar(): void }>>,
