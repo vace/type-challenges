@@ -1,1 +1,5 @@
-type OptionalKeys<T> = any
+type OptionalKeys<T> = keyof {
+  [K in keyof T as T[K] extends Required<T>[K] ? never : K]: never
+}
+
+type DEV = OptionalKeys<{ a: undefined; b?: undefined; c?: string; d?: null }>

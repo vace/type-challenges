@@ -16,18 +16,25 @@ SimpleVue({
     }
   },
   computed: {
+    number() {
+      return this.amount * 10
+    },
     fullname() {
       return `${this.firstname} ${this.lastname}`
+    },
+    hello() {
+      return `hello ${this.fullname}`
     },
   },
   methods: {
     getRandom() {
-      return Math.random()
+      return Math.random() + this.number
     },
     hi() {
-      alert(this.amount)
-      alert(this.fullname.toLowerCase())
-      alert(this.getRandom())
+      const amount = this.amount
+      const fullname = this.fullname.toLowerCase()
+      const random = this.getRandom()
+      return { amount, fullname, random }
     },
     test() {
       const fullname = this.fullname
